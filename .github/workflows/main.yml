@@ -17,4 +17,4 @@ jobs:
          env:
           CURRENT_VERSION: "$(cat VERSION)"
       -  name: print assigned var
-         run: echo $CURRENT_VERSION
+         run: echo "$CURRENT_VERSION"
