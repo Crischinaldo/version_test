@@ -1,7 +1,6 @@
-
+name: create release
 on: [push]
         
-name: Create Release
 jobs:
   build:
     name: Create Release
