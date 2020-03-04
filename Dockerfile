@@ -6,7 +6,7 @@ ARG APP_NAME="risclog_cdn"
 ARG GITHUB_USER="risclog"
 
 ARG GITHUB_USER="risclog"
-ARG GITHUB_PROJEKT="risclog.cdn"
+ARG GITHUB_PROJECT="risclog.cdn"
 ARG GITHUB_ORG="risclog-solution"
 
 ARG GIT_REPO_DOCKERFILE="https://github.com/risclog-solution/risclog.cdn"
