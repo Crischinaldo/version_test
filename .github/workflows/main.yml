@@ -10,13 +10,13 @@ jobs:
         uses: actions/checkout@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-
+      
       - name: print version
       - uses: pCYSl5EDgo/cat@master
         
         id: version
         with:
-             path: VERSION
+          path: VERSION
      
       - run: echo $VERSION
         env:
