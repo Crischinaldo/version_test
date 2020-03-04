@@ -9,7 +9,6 @@ ARG GITHUB_USER="risclog"
 ARG GITHUB_PROJEKT="risclog.cdn"
 ARG GITHUB_ORG="risclog-solution"
 
-docker build -t docker.pkg.github.com/risclog-solution/risclog.cdn/risclog_cdn:$CURRENT_VERSION .
 ARG GIT_REPO_DOCKERFILE="https://github.com/risclog-solution/risclog.cdn"
 
 MAINTAINER Christoph Thomas <christoph@risclog.com>
