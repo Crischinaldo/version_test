@@ -13,12 +13,10 @@ jobs:
       
       - name: Resolve Version
      
-      - uses: pCYSl5EDgo/cat@master
-        
+        uses: pCYSl5EDgo/cat@master
         id: version
         with:
           path: VERSION
-     
       - run: echo $VERSION
         env:
            VERSION: ${{ steps.version.outputs.text }}
