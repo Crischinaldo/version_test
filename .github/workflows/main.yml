@@ -11,29 +11,29 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       
-      - name: Resolve Version
+      - name: Resolve Version with Version File
      
         uses: pCYSl5EDgo/cat@master
         id: version
         with:
           path: VERSION
-      - run: echo $VERSION
-        env:
-           VERSION: ${{ steps.version.outputs.text }}
- 
+      
+      - name: get commit message
+        run: |
+           echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
+           echo $commitmsg
+           
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          VERSION: ${{ steps.version.outputs.text }}
         with:
           tag_name: ${{ steps.version.outputs.text }}
           release_name: Release ${{ steps.version.outputs.text }}
           body: |
             Changes in this Release
-            - First Change
-            - Second Change
+            - echo $commitmsg
           draft: false
           prerelease: false
       
