@@ -11,7 +11,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       
-      - name: print version
+      - name: Resolve Version
+      - run: echo "test"
       - uses: pCYSl5EDgo/cat@master
         
         id: version
