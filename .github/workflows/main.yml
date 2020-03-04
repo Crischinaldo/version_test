@@ -26,7 +26,7 @@ jobs:
         uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          VERSION: ${{ steps.version.outputs.text }}:
+          VERSION: ${{ steps.version.outputs.text }}
         with:
           tag_name: $VERSION
           release_name: Release $VERSION
