@@ -11,10 +11,28 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
 
-      -  name: print version
-
-         run: cat VERSION
-         env:
-          CURRENT_VERSION: "$(cat VERSION)"
-      -  name: print assigned var
-         run: echo "$CURRENT_VERSION"
+      - name: print version
+      - uses: pCYSl5EDgo/cat@master
+        
+        id: version
+        with:
+             path: VERSION
+     
+      - run: echo $VERSION
+        env:
+           VERSION: ${{ steps.version.outputs.text }}
+ 
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
