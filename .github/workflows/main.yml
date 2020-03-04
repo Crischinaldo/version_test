@@ -28,11 +28,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
           VERSION: ${{ steps.version.outputs.text }}
         with:
-          tag_name: $VERSION
-          release_name: Release $VERSION
+          tag_name: ${{ steps.version.outputs.text }}
+          release_name: Release ${{ steps.version.outputs.text }}
           body: |
             Changes in this Release
             - First Change
             - Second Change
           draft: false
           prerelease: false
+      
+          
