@@ -21,17 +21,18 @@ jobs:
         env:
            VERSION: ${{ steps.version.outputs.text }}
  
-   #   - name: Create Release
-  #      id: create_release
-   #     uses: actions/create-release@latest
-  #      env:
-  #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-  #      with:
-  #        tag_name: ${{ github.ref }}
-  #        release_name: Release ${{ github.ref }}
-  #        body: |
-  #          Changes in this Release
-  #          - First Change
-  #          - Second Change
-  #        draft: false
-  #        prerelease: false
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          VERSION: ${{ steps.version.outputs.text }}:
+        with:
+          tag_name: $VERSION
+          release_name: Release $VERSION
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
